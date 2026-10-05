@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/COMP2130_Fall_2026.iml" filepath="$PROJECT_DIR$/.idea/modules/COMP2130_Fall_2026.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Week05-Lecture.iml" filepath="$PROJECT_DIR$/.idea/modules/Week05-Lecture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Week05-Lab05.iml" filepath="$PROJECT_DIR$/.idea/modules/Week05-Lab05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Week06-Lecture.iml" filepath="$PROJECT_DIR$/.idea/modules/Week06-Lecture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Week06-Lab06.iml" filepath="$PROJECT_DIR$/.idea/modules/Week06-Lab06.iml" />
+    </modules>
+  </component>
+</project>
