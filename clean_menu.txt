@@ -1,0 +1,4 @@
+Tea 3.50
+Latte 5.25
+Espresso 3.00
+Total 11.75
