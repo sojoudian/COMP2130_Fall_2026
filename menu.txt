@@ -1,0 +1,5 @@
+Tea 3.50
+Latte 5.25
+Mocha Two.ten
+Caramel_Macchiato -8.50
+Espresso 3.00
