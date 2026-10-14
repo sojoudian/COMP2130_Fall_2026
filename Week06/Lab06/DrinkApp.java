@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Locale;
 
 public class DrinkApp {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         Coffee latte = new Coffee("Iced Latte", 5.25, 2);
         Coffee espresso = new Coffee("Espresso", 3.00, 1);
         Tea tea = new Tea("Green Tea", 3.50);
@@ -12,6 +12,10 @@ public class DrinkApp {
         for (Drink d : menu){
             System.out.println(d);
         }
+        Coffee myFavoriteLatte = latte.clone();
+        myFavoriteLatte.setShots(3);
+        System.out.println("Original: " + latte);
+        System.out.println("My favorite latte (the copy version): " + myFavoriteLatte);
     }
 }
 
@@ -50,9 +54,18 @@ class Coffee extends Drink{
         super(name, price);
         this.shots = shots;
     }
+
+    public void setShots(int shots){
+        this.shots = shots;
+    }
     @Override
     public int getCaffeine(){
         return shots * 60;
+    }
+
+    @Override
+    public Coffee clone() throws CloneNotSupportedException {
+        return (Coffee) super.clone();
     }
 }
 
