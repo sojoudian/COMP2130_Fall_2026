@@ -48,7 +48,7 @@ abstract class Drink implements Comparable<Drink>{
 
 
 
-class Coffee extends Drink{
+class Coffee extends Drink implements Cloneable {
     private int shots;
     public Coffee(String name, double price, int shots){
         super(name, price);
