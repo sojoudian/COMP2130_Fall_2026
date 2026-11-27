@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.*;
+
 public class BeanStock {
     public static void main(String[] args) throws IOException {
         Bean[] beans = {new Bean("Colombia", 12.50, 8),
@@ -9,7 +11,8 @@ public class BeanStock {
         readBean();
     }
     public static void writeBean(Bean[] beans) throws IOException{
-        try(DataOutputStream out = new DataOutputStream(new FileOutputStream("beans.dat"))){
+        try(DataOutputStream out = new DataOutputStream(new BufferedOutputStream(
+                new FileOutputStream("beans.dat")))){
             for (Bean b: beans){
                 out.writeUTF(b.name);
                 out.writeDouble(b.price);
@@ -18,13 +21,18 @@ public class BeanStock {
         }
     }
     public static void readBean() throws IOException{
-        try(DataInputStream in = new DataInputStream(new FileInputStream("beans.dat"))){
-            for(int i=0; i<3; i++){ // 0, 1, 2
+        double total = 0;
+        try(DataInputStream in = new DataInputStream(new BufferedInputStream(new FileInputStream("beans.dat")))){
+            while(true){
                 String name = in.readUTF();
                 double price = in.readDouble();
                 int bags = in.readInt();
-                System.out.println(name + " " + price + " " + bags);
+                total += price * bags;
+                System.out.println(String.format(
+                        Locale.US, "name: %s:, price of each bags: $%.2f, bags %d, $%.2f", name, price, bags, price*bags));
             }
+        } catch (EOFException ex){
+            System.out.println(String.format(Locale.US, "Total: $%.2f", total));
         }
     }
 }
