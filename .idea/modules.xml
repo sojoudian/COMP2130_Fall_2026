@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/COMP2130_Fall_2026.iml" filepath="$PROJECT_DIR$/.idea/modules/COMP2130_Fall_2026.iml" />
+      <module fileurl="file://$PROJECT_DIR$/COMP2130_Fall_2026.iml" filepath="$PROJECT_DIR$/COMP2130_Fall_2026.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Week05-Lab05.iml" filepath="$PROJECT_DIR$/.idea/modules/Week05-Lab05.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Week05-LabTest1-Friday_10am-12pm.iml" filepath="$PROJECT_DIR$/.idea/modules/Week05-LabTest1-Friday_10am-12pm.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Week05-LabTest1-Friday_8am-10am.iml" filepath="$PROJECT_DIR$/.idea/modules/Week05-LabTest1-Friday_8am-10am.iml" />
