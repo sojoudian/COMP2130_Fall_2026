@@ -9,6 +9,7 @@ public class BeanStock {
         System.out.println();
         readBeans();
         saveBeans(beans);
+        changeBags(beans);
     }
     public static void writeBeans(Bean[] beans) throws IOException {
         try (DataOutputStream out = new DataOutputStream( new BufferedOutputStream(
@@ -44,6 +45,19 @@ public class BeanStock {
             Bean[] copy = (Bean[]) in.readObject();
             System.out.println("Before: " + beans[1].name + ", " + beans[1].note);
             System.out.println("after: " + copy[1].name + ", " + copy[1].note);
+        }
+    }
+    public static void changeBags(Bean[] beans) throws IOException{
+        try(RandomAccessFile raf = new RandomAccessFile("bags.dat", "rw")){
+            for (Bean b: beans){
+                raf.writeInt(b.bags);
+            }
+            raf.seek(1 * 4);
+            int bags = raf.readInt();
+            raf.seek(1 * 4);
+            raf.writeInt( bags + 10);
+            raf.seek(0);
+            System.out.println("bags.dat: " + raf.readInt() + " " + raf.readInt() + " " + raf.readInt());
         }
     }
 }
