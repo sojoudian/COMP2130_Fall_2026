@@ -50,7 +50,7 @@ class Bean {
 }
 
 //
-//Lengh   Letter(name) Price Bags  total
+//Length   Letter(name) Price Bags  total
 //Colombia    2           8           8    4     22
 //Ethiopia    2           8           8    4     22
 //Brazil      2           6           8    4     20
