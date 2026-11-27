@@ -5,7 +5,7 @@ public class BeanStock {
                 new Bean("Ethiopia", 15.00, 5),
                 new Bean("Brazil", 10.25, 7),};
         writeBean(beans);
-        System.out.println("beans.dat size: " + new File("beans.dat").length() + "bytes");
+        System.out.println("beans.dat size: " + new File("beans.dat").length() + " bytes");
         readBean();
     }
     public static void writeBean(Bean[] beans) throws IOException{
@@ -40,3 +40,9 @@ class Bean {
         this.bags = bags;
     }
 }
+
+//
+//Lengh   Letter(name) Price Bags  total
+//Colombia    2           8           8    4     22
+//Ethiopia    2           8           8    4     22
+//Brazil      2           6           8    4     20
