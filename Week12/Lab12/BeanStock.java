@@ -2,13 +2,14 @@ import java.io.*;
 import java.util.*;
 
 public class BeanStock {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         Bean[] beans = {new Bean("Colombia", 12.50, 8),
                 new Bean("Ethiopia", 15.00, 5),
                 new Bean("Brazil", 10.25, 7),};
         writeBean(beans);
         System.out.println("beans.dat size: " + new File("beans.dat").length() + " bytes");
         readBean();
+        saveBean(beans);
     }
     public static void writeBean(Bean[] beans) throws IOException{
         try(DataOutputStream out = new DataOutputStream(new BufferedOutputStream(
@@ -29,18 +30,31 @@ public class BeanStock {
                 int bags = in.readInt();
                 total += price * bags;
                 System.out.println(String.format(
-                        Locale.US, "name: %s:, price of each bags: $%.2f, bags %d, $%.2f", name, price, bags, price*bags));
+                        Locale.US, "name: %s:, price of each bag: $%.2f, bags %d, $%.2f", name, price, bags, price*bags));
             }
         } catch (EOFException ex){
             System.out.println(String.format(Locale.US, "Total: $%.2f", total));
         }
     }
+    public static void saveBean(Bean[] beans) throws IOException, ClassNotFoundException{
+        beans[1].note = "low stock";
+        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("beans.obj"))){
+            out.writeObject(beans);
+        }
+        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("beans.obj"))){
+            Bean[] copy = (Bean[]) in.readObject();
+            System.out.println("Before: " + beans[1].name + ", " + beans[1].note);
+            System.out.println("After: " + copy[1].name + ", " + copy[1].note);
+        }
+    }
 }
 
-class Bean {
+class Bean implements Serializable{
+    private static final long serialVersionUI = 1L;
     String name;
     double price;
     int bags;
+    transient String note;
 
     Bean(String name, double price, int bags){
         this.name = name;
